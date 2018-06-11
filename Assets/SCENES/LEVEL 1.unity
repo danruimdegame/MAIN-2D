@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 155613465}
   - component: {fileID: 155613464}
   - component: {fileID: 155613463}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Platform_PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 800227477}
   - component: {fileID: 800227476}
   - component: {fileID: 800227475}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
@@ -1699,7 +1699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1177982983}
   - component: {fileID: 1177982982}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1747,7 @@ GameObject:
   - component: {fileID: 1247184006}
   - component: {fileID: 1247184008}
   - component: {fileID: 1247184007}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Platform_Flying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1800,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
@@ -2170,6 +2170,26 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
+      propertyPath: m_JumpForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
+      propertyPath: m_MaxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
   m_IsPrefabParent: 0
@@ -2183,7 +2203,7 @@ GameObject:
   - component: {fileID: 1578825008}
   - component: {fileID: 1578825010}
   - component: {fileID: 1578825009}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Tilemap_BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78186,7 +78206,7 @@ GameObject:
   - component: {fileID: 1859717994}
   - component: {fileID: 1859717993}
   - component: {fileID: 1859717992}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Ladders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78252,7 +78272,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
@@ -78595,7 +78615,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1909804969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -1.61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78628,7 +78648,7 @@ GameObject:
   - component: {fileID: 2114331050}
   - component: {fileID: 2114331049}
   - component: {fileID: 2114331051}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Tilemap_Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

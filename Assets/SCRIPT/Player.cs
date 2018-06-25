@@ -2,6 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Idle - 0
+Jump - 1
+Run - 2
+Shoot - 3
+RunShoot - 4
+JumpShoot - 5
+ClimbShoot - 6
+Climb - 7
+ClimbEnd - 8
+Damage - 9
+ */
+
 public class Player : MonoBehaviour {
 
 	public float horizontalSpeed = 10f;
@@ -9,11 +22,14 @@ public class Player : MonoBehaviour {
 
 	Rigidbody2D rb;
 	SpriteRenderer sr;
+	Animator anim;
+	bool isJumping = false;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -42,13 +58,29 @@ public class Player : MonoBehaviour {
 		}else if (speed > 0f){
 			sr.flipX = false;
 		}
+
+		if(!isJumping){
+		anim.SetInteger("State", 2);
+		}
 	}
 
 	void StopMoving(){
 		rb.velocity = new Vector2(0f, rb.velocity.y);
+
+		if(!isJumping){
+		anim.SetInteger("State", 0);
+		}
 	}
 
 	void Jump(){
+		isJumping = true;
 		rb.velocity = new Vector2(0, jumpSpeed);
+		anim.SetInteger("State", 1);
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+		if (other.gameObject.layer == 10){
+			isJumping = false;
+		}
 	}
 }

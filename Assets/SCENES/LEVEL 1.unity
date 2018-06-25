@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 155613465}
   - component: {fileID: 155613464}
   - component: {fileID: 155613463}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Platform_PopUp
   m_TagString: Platforms
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 800227475}
   - component: {fileID: 800227479}
   - component: {fileID: 800227478}
-  m_Layer: 1
+  m_Layer: 10
   m_Name: Spikes
   m_TagString: Platforms
   m_Icon: {fileID: 0}

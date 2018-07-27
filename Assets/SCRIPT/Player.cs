@@ -25,16 +25,32 @@ public class Player : MonoBehaviour {
 	Animator anim;
 	bool isJumping = false;
 
+	public Transform feet;
+	public float feetWidth = 0.58f;
+	public float feetHeight = 0.1f;
+
+	public bool isGrounded;
+	public LayerMask whaIsGround;
+
+//double jump
+	bool canDoubleJump = false;
+	public float delay2Jump = 0.2f;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 	}
+
+	void OnDrawGizmos(){
+		Gizmos.DrawWireCube(feet.position, new Vector3(feetWidth, feetHeight, 0f));
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		isGrounded = Physics2D.OverlapBox(new Vector2(feet.position.x, feet.position.y), new Vector2(feetWidth, feetHeight), 360f, whaIsGround);
+
 		float horizontalInput = Input.GetAxisRaw("Horizontal");
 		float horizontalPlayerSpeed = horizontalSpeed * horizontalInput;
 		if (horizontalPlayerSpeed != 0){
@@ -44,10 +60,9 @@ public class Player : MonoBehaviour {
 			StopMoving();
 		}
 
-		if (Input.GetButtonDown("Jump")){
+				if (Input.GetButtonDown("Jump")){
 			Jump();
 		}
-
 	}
 
 	void MoveHorizontal(float speed){
@@ -73,9 +88,13 @@ public class Player : MonoBehaviour {
 	}
 
 	void Jump(){
+		if (isGrounded){
 		isJumping = true;
-		rb.velocity = new Vector2(0, jumpSpeed);
+		//rb.velocity = new Vector2(0, jumpSpeed);
+		rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
 		anim.SetInteger("State", 1);
+
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other){

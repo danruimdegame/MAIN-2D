@@ -106,6 +106,7 @@ public class Player : MonoBehaviour {
 //Collect XP 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.CompareTag("XP")){
+			VFXM.instance.ShowXPParticles(other.gameObject);
 			Destroy(other.gameObject);
 		}
 	}

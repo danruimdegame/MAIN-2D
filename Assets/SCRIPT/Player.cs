@@ -102,4 +102,11 @@ public class Player : MonoBehaviour {
 			isJumping = false;
 		}
 	}
+
+//Collect XP 
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.CompareTag("XP")){
+			Destroy(other.gameObject);
+		}
+	}
 }

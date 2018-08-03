@@ -90,6 +90,7 @@ public class Player : MonoBehaviour {
 	void Jump(){
 		if (isGrounded){
 		isJumping = true;
+		SFXM.instance.PlayJumpSound(gameObject);
 		//rb.velocity = new Vector2(0, jumpSpeed);
 		rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
 		anim.SetInteger("State", 1);
@@ -104,10 +105,11 @@ public class Player : MonoBehaviour {
 	}
 
 //Collect XP 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.gameObject.CompareTag("XP")){
-			VFXM.instance.ShowXPParticles(other.gameObject);
-			Destroy(other.gameObject);
+	void OnTriggerEnter2D(Collider2D XP){
+		if (XP.gameObject.CompareTag("XP")){
+			SFXM.instance.PlayXPPickupSound(XP.gameObject);
+			VFXM.instance.ShowXPParticles(XP.gameObject);
+			Destroy(XP.gameObject);
 		}
 	}
 }

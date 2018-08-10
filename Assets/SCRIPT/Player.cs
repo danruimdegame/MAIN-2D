@@ -30,7 +30,7 @@ public class Player : MonoBehaviour {
 	public float feetHeight = 0.1f;
 
 	public bool isGrounded;
-	public LayerMask whaIsGround;
+	public LayerMask[] whaIsGround;
 
 	// Use this for initialization
 	void Start () {
@@ -43,13 +43,22 @@ public class Player : MonoBehaviour {
 		Gizmos.DrawWireCube(feet.position, new Vector3(feetWidth, feetHeight, 0f));
 	}
 	
+	bool TestGrounded() {
+		foreach (LayerMask lm in whaIsGround) {
+			if (Physics2D.OverlapBox(new Vector2(feet.position.x, feet.position.y), new Vector2(feetWidth, feetHeight), 360f, lm)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if(transform.position.y < GM.instance.YMinLive) {
 			GM.instance.KillBill();
 		}
 
-		isGrounded = Physics2D.OverlapBox(new Vector2(feet.position.x, feet.position.y), new Vector2(feetWidth, feetHeight), 360f, whaIsGround);
+		isGrounded = TestGrounded();
 
 		float horizontalInput = Input.GetAxisRaw("Horizontal");
 		float horizontalPlayerSpeed = horizontalSpeed * horizontalInput;
@@ -102,14 +111,26 @@ public class Player : MonoBehaviour {
 		if (other.gameObject.layer == 10){
 			isJumping = false;
 		}
+
+		//moving platform reaction
+		if (other.gameObject.layer == 15){
+			isJumping = false;
+			transform.parent = other.transform;
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D other){
+		if(other.gameObject.layer == 15){
+		transform.parent = null;
+		}
 	}
 
 //Collect XP 
-	void OnTriggerEnter2D(Collider2D XP){
-		if (XP.gameObject.CompareTag("XP")){
-			SFXM.instance.PlayXPPickupSound(XP.gameObject);
-			VFXM.instance.ShowXPParticles(XP.gameObject);
-			Destroy(XP.gameObject);
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.CompareTag("XP")){
+			SFXM.instance.PlayXPPickupSound(other.gameObject);
+			VFXM.instance.ShowXPParticles(other.gameObject);
+			Destroy(other.gameObject);
 		}
 	}
 }

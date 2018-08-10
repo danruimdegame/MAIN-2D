@@ -37,6 +37,7 @@ public class GM : MonoBehaviour {
 
 	public void RespawnPlayer (){
 		Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+		player.transform.parent = null;
 	}
 
 	public void KillBill(){

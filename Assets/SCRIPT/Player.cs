@@ -130,6 +130,7 @@ public class Player : MonoBehaviour {
 		if (other.gameObject.CompareTag("XP")){
 			SFXM.instance.PlayXPPickupSound(other.gameObject);
 			VFXM.instance.ShowXPParticles(other.gameObject);
+			GM.instance.IncrementXpCount();
 			Destroy(other.gameObject);
 		}
 	}

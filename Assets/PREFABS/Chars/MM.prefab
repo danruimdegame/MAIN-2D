@@ -182,8 +182,12 @@ MonoBehaviour:
   feetHeight: 0.1
   isGrounded: 0
   whaIsGround:
-    serializedVersion: 2
+  - serializedVersion: 2
     m_Bits: 1024
+  - serializedVersion: 2
+    m_Bits: 4096
+  - serializedVersion: 2
+    m_Bits: 32768
 --- !u!212 &212999550188519708
 SpriteRenderer:
   m_ObjectHideFlags: 1

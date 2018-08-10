@@ -6,11 +6,16 @@ public class GM : MonoBehaviour {
 
 	public static GM instance = null;
 	Player player;
+
+	//minimus height to keep alive
 	public float YMinLive = -18f;
 	public Transform spawnPoint;
 	public GameObject playerPrefab;
-
 	public float timeToRespawn = 2f;
+
+	public UI ui;
+
+	GD data = new GD();
 
 	void Awake(){
 		if (instance == null){
@@ -33,6 +38,21 @@ public class GM : MonoBehaviour {
 				player = obj.GetComponent<Player>();
 			}
 		}
+
+		DisplayHUDData();
+	}
+
+	void DisplayHUDData(){
+		if (data.XpCount <= 50){
+		ui.hud.XPBar.value = data.XpCount;
+		}
+		else if (data.XpCount > 50){
+		ui.hud.XPBar.value = data.XpCount - 50;
+		}
+	}
+
+	public void IncrementXpCount(){
+		data.XpCount++;
 	}
 
 	public void RespawnPlayer (){

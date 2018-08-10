@@ -16,5 +16,14 @@ public class UI {
 		public Slider XPBar;
 	}
 
+	[Serializable]
+	public class GameOver {
+
+		[Header("Bars")]
+
+		public GameObject gameOverPanel;
+	}
+
 	public HUD hud;
+	public GameOver gameOver;
 }

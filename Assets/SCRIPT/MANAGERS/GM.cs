@@ -43,16 +43,27 @@ public class GM : MonoBehaviour {
 	}
 
 	void DisplayHUDData(){
+		//Xp bar
 		if (data.XpCount <= 50){
 		ui.hud.XPBar.value = data.XpCount;
 		}
 		else if (data.XpCount > 50){
 		ui.hud.XPBar.value = data.XpCount - 50;
 		}
+
+		//Life Count
+		ui.hud.LifeCount.text = data.lifeCount.ToString("F0");
 	}
 
 	public void IncrementXpCount(){
 		data.XpCount++;
+	}
+	public void DecrementLives(){
+		data.lifeCount --;
+	}
+
+	void GameOver(){
+		ui.gameOver.gameOverPanel.SetActive(true);
 	}
 
 	public void RespawnPlayer (){
@@ -63,7 +74,13 @@ public class GM : MonoBehaviour {
 	public void KillBill(){
 		if (player != null){
 			Destroy(player.gameObject);
+			DecrementLives();
+			if(data.lifeCount > 0){
 			Invoke("RespawnPlayer", timeToRespawn);
+			}
+			else {
+			GameOver();
+			}
 		}
 	}
 }

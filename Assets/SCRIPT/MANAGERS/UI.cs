@@ -14,12 +14,15 @@ public class UI {
 		public Image HPBar;
 
 		public Slider XPBar;
+
+		[Header("Text")]
+		public Text LifeCount;
 	}
 
 	[Serializable]
 	public class GameOver {
 
-		[Header("Bars")]
+		[Header("Other")]
 
 		public GameObject gameOverPanel;
 	}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GM : MonoBehaviour {
 
@@ -41,6 +42,20 @@ public class GM : MonoBehaviour {
 
 		DisplayHUDData();
 	}
+	//Scene Management
+	public void RestartLevel(){
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
+	public void ExitToMainMenu(){
+		LoadScene(0);
+	}
+	public void CloseApp(){
+		Application.Quit();
+	}
+	public void LoadScene(int sceneNumber){
+		SceneManager.LoadScene(sceneNumber);
+	}
+	// 
 
 	void DisplayHUDData(){
 		//Xp bar
@@ -51,18 +66,38 @@ public class GM : MonoBehaviour {
 		ui.hud.XPBar.value = data.XpCount - 50;
 		}
 
+		//HP bar
+		if (data.HpCount > 100){
+			ui.hud.HPBar.maxValue = data.HpCount;
+			ui.hud.HPBar.value = data.HpCount;
+		}
+		else{
+			ui.hud.HPBar.value = data.HpCount;
+		}
+
+
 		//Life Count
 		ui.hud.LifeCount.text = data.lifeCount.ToString("F0");
 	}
 
+	//XP Interaction
 	public void IncrementXpCount(){
 		data.XpCount++;
 	}
+	public void IncrementXpCount2(){
+		data.XpCount = data.XpCount + 5;
+	}
+	public void IncrementXpCount3(){
+		data.XpCount = data.XpCount + 20;
+	}
+
+	//Lives and HP Interaction
 	public void DecrementLives(){
 		data.lifeCount --;
 	}
 
 	void GameOver(){
+		ui.hud.HUDPanel.SetActive(false);
 		ui.gameOver.gameOverPanel.SetActive(true);
 	}
 

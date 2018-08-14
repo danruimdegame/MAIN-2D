@@ -11,12 +11,15 @@ public class UI {
 	public class HUD {
 
 		[Header("Bars")]
-		public Image HPBar;
+		public Slider HPBar;
 
 		public Slider XPBar;
 
 		[Header("Text")]
 		public Text LifeCount;
+
+		[Header("Other")]
+		public GameObject HUDPanel;
 	}
 
 	[Serializable]

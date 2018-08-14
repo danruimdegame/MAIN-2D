@@ -133,5 +133,17 @@ public class Player : MonoBehaviour {
 			GM.instance.IncrementXpCount();
 			Destroy(other.gameObject);
 		}
+		else if(other.gameObject.CompareTag("XP2")){
+			SFXM.instance.PlayXPPickupSound(other.gameObject);
+			VFXM.instance.ShowXPParticles(other.gameObject);
+			GM.instance.IncrementXpCount2();
+			Destroy(other.gameObject);
+		}
+		else if (other.gameObject.CompareTag("XP3")){
+			SFXM.instance.PlayXPPickupSound(other.gameObject);
+			VFXM.instance.ShowXPParticles(other.gameObject);
+			GM.instance.IncrementXpCount3();
+			Destroy(other.gameObject);
+		}
 	}
 }

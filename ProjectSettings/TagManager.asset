@@ -9,6 +9,8 @@ TagManager:
   - Platforms
   - Collectibles
   - XP
+  - XP2
+  - XP3
   layers:
   - Default
   - TransparentFX

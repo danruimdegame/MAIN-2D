@@ -100,8 +100,8 @@ public class Player : MonoBehaviour {
 		if (isGrounded){
 		isJumping = true;
 		SFXM.instance.PlayJumpSound(gameObject);
-		//rb.velocity = new Vector2(0, jumpSpeed);
-		rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+		rb.velocity = new Vector2(0, jumpSpeed);
+		//rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
 		anim.SetInteger("State", 1);
 
 		}
@@ -127,23 +127,27 @@ public class Player : MonoBehaviour {
 
 //Collect XP 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.gameObject.CompareTag("XP")){
+		switch (other.gameObject.tag){
+			case "XP":
 			SFXM.instance.PlayXPPickupSound(other.gameObject);
 			VFXM.instance.ShowXPParticles(other.gameObject);
 			GM.instance.IncrementXpCount();
 			Destroy(other.gameObject);
-		}
-		else if(other.gameObject.CompareTag("XP2")){
+			break;
+
+			case "XP2":
 			SFXM.instance.PlayXPPickupSound(other.gameObject);
 			VFXM.instance.ShowXPParticles(other.gameObject);
 			GM.instance.IncrementXpCount2();
 			Destroy(other.gameObject);
-		}
-		else if (other.gameObject.CompareTag("XP3")){
+			break;
+
+			case "XP3":
 			SFXM.instance.PlayXPPickupSound(other.gameObject);
 			VFXM.instance.ShowXPParticles(other.gameObject);
 			GM.instance.IncrementXpCount3();
 			Destroy(other.gameObject);
+			break;
 		}
 	}
 }

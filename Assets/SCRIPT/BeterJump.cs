@@ -22,7 +22,7 @@ public class BeterJump : MonoBehaviour {
 		}
 	}
  */
- void FixedUpdate(){
+ void Update(){
 		if (rb.velocity.y < 0) {
 			rb.gravityScale = fallMultiplier;
 		}

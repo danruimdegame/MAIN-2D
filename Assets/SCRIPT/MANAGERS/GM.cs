@@ -18,6 +18,8 @@ public class GM : MonoBehaviour {
 
 	GD data = new GD();
 
+	Animator playeranim;
+
 	void Awake(){
 		if (instance == null){
 			instance = this;
@@ -29,6 +31,7 @@ public class GM : MonoBehaviour {
 		if (player == null){
 			RespawnPlayer();
 		}
+		playeranim = player.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -92,8 +95,13 @@ public class GM : MonoBehaviour {
 	}
 
 	//Lives and HP Interaction
+	//LIVES
 	public void DecrementLives(){
 		data.lifeCount --;
+	}
+	//HP
+	public void DecrementHP(int damage){
+		data.HpCount = data.HpCount - damage;
 	}
 
 	void GameOver(){
@@ -103,6 +111,7 @@ public class GM : MonoBehaviour {
 
 	public void RespawnPlayer (){
 		Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+		data.HpCount = 100;
 		player.transform.parent = null;
 	}
 
@@ -117,5 +126,21 @@ public class GM : MonoBehaviour {
 			GameOver();
 			}
 		}
+	}
+
+	public void HurtBill(int damage){
+		if (player != null){
+			PushPlayer();
+			DecrementHP(damage);
+			if (data.HpCount <= 0){
+				KillBill();
+			}
+		}
+	}
+
+	void PushPlayer(){
+		Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+		rb.velocity = Vector2.zero;
+		rb.AddForce(new Vector2(-250.0f, 400f));
 	}
 }

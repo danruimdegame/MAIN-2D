@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ENMYflyer : MonoBehaviour {
 	public float speed = -2f;
+	public int damage = 15;
 
 	Rigidbody2D rb;
 	SpriteRenderer sr;
@@ -30,6 +31,9 @@ public class ENMYflyer : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		if (other.gameObject.layer != 14){
 			Flip();
+		}
+		else if (other.gameObject.layer == 14){
+			GM.instance.HurtBill(damage);
 		}
 	}
 

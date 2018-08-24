@@ -69,7 +69,7 @@ public class Player : MonoBehaviour {
 			StopMoving();
 		}
 
-				if (Input.GetButtonDown("Jump")){
+		if (Input.GetButtonDown("Jump")){
 			Jump();
 		}
 	}
@@ -108,17 +108,19 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
+		//ground reaction
 		if (other.gameObject.layer == 10){
 			isJumping = false;
 		}
 
 		//moving platform reaction
-		if (other.gameObject.layer == 15){
+		else if (other.gameObject.layer == 15){
 			isJumping = false;
 			transform.parent = other.transform;
 		}
 	}
 
+//NO TOUCHING MOVING PLATFORM
 	void OnCollisionExit2D(Collision2D other){
 		if(other.gameObject.layer == 15){
 		transform.parent = null;

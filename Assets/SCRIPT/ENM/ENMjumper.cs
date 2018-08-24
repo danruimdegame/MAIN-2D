@@ -11,6 +11,8 @@ public class ENMjumper : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float waitTime = 0.5f;
 
+	public int damage = 10;
+
 	Animator anim;
 
 	SpriteRenderer sr;
@@ -45,6 +47,12 @@ public class ENMjumper : MonoBehaviour {
 		currentPoint = positions[pointSelection];
 		yield return null;
 
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+	 	if (other.gameObject.layer == 14){
+			GM.instance.HurtBill(damage);
 		}
 	}
 

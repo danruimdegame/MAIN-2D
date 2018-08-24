@@ -140,7 +140,6 @@ public class GM : MonoBehaviour {
 
 	void PushPlayer(){
 		Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-		rb.velocity = Vector2.zero;
 		rb.AddForce(new Vector2(-250.0f, 400f));
 	}
 }

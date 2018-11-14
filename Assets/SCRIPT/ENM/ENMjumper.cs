@@ -53,6 +53,7 @@ public class ENMjumper : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 	 	if (other.gameObject.layer == 14){
 			GM.instance.HurtBill(damage);
+			
 		}
 	}
 

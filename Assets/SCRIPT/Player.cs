@@ -32,6 +32,8 @@ public class Player : MonoBehaviour {
 	public bool isGrounded;
 	public LayerMask[] whaIsGround;
 
+	bool invulnerable = false;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
@@ -127,9 +129,21 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+
+
+ 
 //Collect XP 
 	void OnTriggerEnter2D(Collider2D other){
 		switch (other.gameObject.tag){
+
+			case "Enemies":
+			if (!invulnerable) {
+				Debug.Log("pegou");
+				EnemyData script = other.gameObject.GetComponent<EnemyData>();
+				GM.instance.HurtBill(script.Damage);
+			}
+			break;
+
 			case "XP":
 			SFXM.instance.PlayXPPickupSound(other.gameObject);
 			VFXM.instance.ShowXPParticles(other.gameObject);
@@ -151,5 +165,17 @@ public class Player : MonoBehaviour {
 			Destroy(other.gameObject);
 			break;
 		}
+	}
+
+	public void PushPlayer(){
+		rb.velocity = Vector2.zero;
+		rb.AddForce(new Vector2(400.0f, -400.0f));
+		invulnerable = true;
+		Invoke("SetVulnarable", 2f);
+
+	}
+
+	void SetVulnarable() {
+		invulnerable = false;
 	}
 }

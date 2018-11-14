@@ -11,7 +11,7 @@ public class GM : MonoBehaviour {
 	//minimus height to keep alive
 	public float YMinLive = -18f;
 	public Transform spawnPoint;
-	public GameObject playerPrefab;
+	public Player playerPrefab;
 	public float timeToRespawn = 2f;
 
 	public UI ui;
@@ -110,9 +110,9 @@ public class GM : MonoBehaviour {
 	}
 
 	public void RespawnPlayer (){
-		Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+		player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
 		data.HpCount = 100;
-		player.transform.parent = null;
+		//player.transform.parent = null;
 	}
 
 	public void KillBill(){
@@ -130,7 +130,7 @@ public class GM : MonoBehaviour {
 
 	public void HurtBill(int damage){
 		if (player != null){
-			PushPlayer();
+			player.PushPlayer();
 			DecrementHP(damage);
 			if (data.HpCount <= 0){
 				KillBill();
@@ -138,8 +138,8 @@ public class GM : MonoBehaviour {
 		}
 	}
 
-	void PushPlayer(){
-		Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-		rb.AddForce(new Vector2(-250.0f, 400f));
+	IEnumerator GetInvulnerable(){
+		Physics2D.IgnoreLayerCollision (15, 16, true);
+		yield return new WaitForSeconds (2f);
 	}
 }

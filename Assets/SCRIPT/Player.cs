@@ -26,8 +26,13 @@ public class Player : MonoBehaviour {
 	bool isJumping = false;
 
 	public Transform feet;
+	public Transform rightShoot;
+	public Transform leftShoot;
 	public float feetWidth = 0.58f;
 	public float feetHeight = 0.1f;
+
+	public GameObject rightShootPrefab;
+	public GameObject leftShootPrefab;
 
 	public bool isGrounded;
 	public LayerMask[] whaIsGround;
@@ -74,6 +79,14 @@ public class Player : MonoBehaviour {
 		if (Input.GetButtonDown("Jump")){
 			Jump();
 		}
+
+		if (Input.GetButtonDown("Fire1")){
+			Shoot();
+		}
+	}
+
+	void Shoot (){
+		Instantiate(rightShootPrefab, rightShoot.position, Quaternion.identity);
 	}
 
 	void MoveHorizontal(float speed){

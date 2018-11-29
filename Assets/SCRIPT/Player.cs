@@ -31,8 +31,13 @@ public class Player : MonoBehaviour {
 	public float feetWidth = 0.58f;
 	public float feetHeight = 0.1f;
 
+	//shooting mechanichs
+	public float delayForShoot = 0.005f;
+	float shootTime = 0f;
+
 	public GameObject rightShootPrefab;
 	public GameObject leftShootPrefab;
+	//
 
 	public bool isGrounded;
 	public LayerMask[] whaIsGround;
@@ -61,6 +66,11 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		
+		if (shootTime < delayForShoot){
+			shootTime += Time.deltaTime;
+		}
+
 		if(transform.position.y < GM.instance.YMinLive) {
 			GM.instance.KillBill();
 		}
@@ -86,6 +96,11 @@ public class Player : MonoBehaviour {
 	}
 
 	void Shoot (){
+		if(delayForShoot > shootTime){
+			return;
+		}
+
+		shootTime = 0f;
 
 		if(sr.flipX){
 			SFXM.instance.PlayShotSound(leftShoot.gameObject);

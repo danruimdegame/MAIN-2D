@@ -7,4 +7,5 @@ using System;
 public class SFX {
 	public AudioClip XPPickup;
 	public AudioClip HPPickup;
+	public AudioClip Shot;
 }

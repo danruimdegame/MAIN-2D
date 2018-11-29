@@ -22,4 +22,9 @@ public class SFXM : MonoBehaviour {
 	public void PlayJumpSound(GameObject obj){
 		AudioSource.PlayClipAtPoint(SoundFXPlayer.Jump, obj.transform.position);
 	}
+
+	public void PlayShotSound(GameObject obj){
+		AudioSource.PlayClipAtPoint(SoundFX.Shot, obj.transform.position);
+	}
+	
 }

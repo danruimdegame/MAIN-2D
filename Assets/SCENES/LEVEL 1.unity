@@ -7234,6 +7234,7 @@ MonoBehaviour:
   SoundFX:
     XPPickup: {fileID: 8300000, guid: aa7d99fd8a9c26f449ad590fbd0b44a6, type: 3}
     HPPickup: {fileID: 0}
+    Shot: {fileID: 8300000, guid: 22990a6c6c24ffd4284fe35e3c942acc, type: 3}
   SoundFXPlayer:
     Jump: {fileID: 8300000, guid: 3b9f8203808295347b41d6046b64a425, type: 3}
 --- !u!1 &1477200239
@@ -84313,7 +84314,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 25
-  orthographic: 0
+  orthographic: 1
   orthographic size: 3
   m_Depth: -1
   m_CullingMask:

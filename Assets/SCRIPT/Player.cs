@@ -86,7 +86,15 @@ public class Player : MonoBehaviour {
 	}
 
 	void Shoot (){
+
+		if(sr.flipX){
+			SFXM.instance.PlayShotSound(leftShoot.gameObject);
+			Instantiate(leftShootPrefab, leftShoot.position, Quaternion.identity);
+		}
+		else{
+		SFXM.instance.PlayShotSound(rightShoot.gameObject);
 		Instantiate(rightShootPrefab, rightShoot.position, Quaternion.identity);
+		}
 	}
 
 	void MoveHorizontal(float speed){

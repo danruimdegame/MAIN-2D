@@ -11,8 +11,8 @@ public class ENMjumper : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float waitTime = 0.5f;
 
-	public int health = 3;
-	public int damage = 10;
+	public int health = 5;
+	public int damage = 30;
 
 	Animator anim;
 

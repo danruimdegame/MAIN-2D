@@ -1990,6 +1990,16 @@ Prefab:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 50473926392478484, guid: 1027bc2b0c016744aa5ec331068ade0e,
+        type: 2}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61890663837012458, guid: 1027bc2b0c016744aa5ec331068ade0e,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1027bc2b0c016744aa5ec331068ade0e, type: 2}
   m_IsPrefabParent: 0

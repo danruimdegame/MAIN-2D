@@ -29,12 +29,7 @@ public class ENMYflyer : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
-		if (other.gameObject.layer != 14){
-			Flip();
-		}
-		else if (other.gameObject.layer == 14){
-			GM.instance.HurtBill(damage);
-		}
+		
 	}
 
 	void FlipCheck(){
@@ -50,9 +45,19 @@ public class ENMYflyer : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		//player
+		if (other.gameObject.layer == 14){
+			GM.instance.HurtBill(damage);
+		}
+		//platform
+		else if (other.gameObject.layer == 10){
+			Flip();
+		}
+
 		if (other.gameObject.tag == "Bullet1"){
 			Destroy(other.gameObject);
 			Destroy(this.gameObject);
 		}
+
 	}
 }

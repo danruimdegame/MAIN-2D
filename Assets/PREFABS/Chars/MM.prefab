@@ -240,6 +240,7 @@ MonoBehaviour:
   leftShoot: {fileID: 4937548678948864}
   feetWidth: 0.5
   feetHeight: 0.1
+  delayForShoot: 0.005
   rightShootPrefab: {fileID: 1476919953413516, guid: 6a9ad246d4566634c971bdb0e4adc85f,
     type: 2}
   leftShootPrefab: {fileID: 1083257407237646, guid: 216e0e1cbc43b334baa2334b02fa6110,
@@ -285,7 +286,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c398287f2010ed64bb37d8b81d6b6b9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

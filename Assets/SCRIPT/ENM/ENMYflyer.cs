@@ -48,4 +48,10 @@ public class ENMYflyer : MonoBehaviour {
 	void Flip(){
 		speed = -speed;
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag == "Bullet1"){
+			Destroy(this.gameObject);
+		}
+	}
 }

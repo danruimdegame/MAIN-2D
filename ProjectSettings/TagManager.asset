@@ -12,6 +12,7 @@ TagManager:
   - XP2
   - XP3
   - Enemies
+  - Bullet1
   layers:
   - Default
   - TransparentFX

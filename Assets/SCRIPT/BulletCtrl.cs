@@ -19,13 +19,11 @@ public class BulletCtrl : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		Debug.Log("colidiu");
 		if (other.gameObject.tag == "MainCamera"){
 			Destroy(this.gameObject);
-			Debug.Log("era camera");
 		}
-		else {
-			Debug.Log("nao era camera");
+		if (other.gameObject.tag == "Platforms"){
+			Destroy(this.gameObject);
 		}
 	}
 }

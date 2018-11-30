@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ENMYflyer : MonoBehaviour {
 	public float speed = -2f;
-	public int damage = 15;
+	public int damage = 25;
 
 	Rigidbody2D rb;
 	SpriteRenderer sr;
@@ -51,6 +51,7 @@ public class ENMYflyer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Bullet1"){
+			Destroy(other.gameObject);
 			Destroy(this.gameObject);
 		}
 	}

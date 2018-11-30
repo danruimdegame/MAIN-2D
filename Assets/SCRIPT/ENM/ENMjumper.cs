@@ -11,6 +11,7 @@ public class ENMjumper : MonoBehaviour {
 	public float moveSpeed = 2f;
 	public float waitTime = 0.5f;
 
+	public int health = 3;
 	public int damage = 10;
 
 	Animator anim;
@@ -50,10 +51,18 @@ public class ENMjumper : MonoBehaviour {
 		}
 	}
 
+	//hurt player
 	void OnCollisionEnter2D(Collision2D other){
 	 	if (other.gameObject.layer == 14){
 			GM.instance.HurtBill(damage);
-			
+		}
+	}
+
+	//damaged by bullet
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag == "Bullet1"){
+			health = health - 1;
+			Destroy(other.gameObject);
 		}
 	}
 
@@ -67,5 +76,8 @@ public class ENMjumper : MonoBehaviour {
 	}
 
 	void Update () {
+		if (health <= 0){
+			Destroy(this.gameObject);
+		}
 	}
 }

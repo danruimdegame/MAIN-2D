@@ -532,6 +532,7 @@ MonoBehaviour:
   pointSelection: 0
   moveSpeed: 3
   waitTime: 0.5
+  health: 3
   damage: 10
 --- !u!114 &88327272
 MonoBehaviour:

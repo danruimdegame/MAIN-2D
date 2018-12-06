@@ -56,6 +56,7 @@ public class ENMYflyer : MonoBehaviour {
 
 		if (other.gameObject.tag == "Bullet1"){
 			VFXM.instance.ShowEnemyDeathParticles(transform.gameObject);
+			SFXM.instance.PlayEnemyDeathSound(transform.gameObject);
 			Destroy(other.gameObject);
 			Destroy(this.gameObject);
 		}

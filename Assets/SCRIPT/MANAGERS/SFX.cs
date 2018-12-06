@@ -9,4 +9,6 @@ public class SFX {
 	public AudioClip HPPickup;
 	public AudioClip Shot;
 	public AudioClip FailSound;
+	public AudioClip EnemyDeath;
+	public AudioClip EnemyDamage;
 }

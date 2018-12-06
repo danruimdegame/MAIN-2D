@@ -7247,6 +7247,8 @@ MonoBehaviour:
     HPPickup: {fileID: 8300000, guid: 04c60f3ada39628418e95883fce2495c, type: 3}
     Shot: {fileID: 8300000, guid: 22990a6c6c24ffd4284fe35e3c942acc, type: 3}
     FailSound: {fileID: 8300000, guid: 8529fb68b7f24bd4cb3d7b7387614528, type: 3}
+    EnemyDeath: {fileID: 8300000, guid: 35e7ffff42178ca42975db317e8812f9, type: 3}
+    EnemyDamage: {fileID: 8300000, guid: b4783229c537f6343a2ab8d0901a5c89, type: 3}
   SoundFXPlayer:
     Jump: {fileID: 8300000, guid: 3b9f8203808295347b41d6046b64a425, type: 3}
 --- !u!1 &1477200239

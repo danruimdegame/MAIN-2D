@@ -30,5 +30,13 @@ public class SFXM : MonoBehaviour {
 	public void PlayShotSound(GameObject obj){
 		AudioSource.PlayClipAtPoint(SoundFX.Shot, obj.transform.position);
 	}
+
+	public void PlayEnemyDeathSound(GameObject obj){
+		AudioSource.PlayClipAtPoint(SoundFX.EnemyDeath, obj.transform.position);
+	}
+
+	public void PlayEnemyDamageSound(GameObject obj){
+		AudioSource.PlayClipAtPoint(SoundFX.EnemyDamage, obj.transform.position);
+	}
 	
 }

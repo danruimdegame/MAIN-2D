@@ -63,6 +63,7 @@ public class ENMjumper : MonoBehaviour {
 		if (other.gameObject.tag == "Bullet1"){
 			health = health - 1;
 			VFXM.instance.ShowEnemyDeathParticles(transform.gameObject);
+			SFXM.instance.PlayEnemyDamageSound(transform.gameObject);
 			Destroy(other.gameObject);
 		}
 	}
@@ -79,6 +80,7 @@ public class ENMjumper : MonoBehaviour {
 	void Update () {
 		if (health <= 0){
 			Destroy(this.gameObject);
+			SFXM.instance.PlayEnemyDeathSound(transform.gameObject);
 		}
 	}
 }

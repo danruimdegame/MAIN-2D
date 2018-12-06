@@ -103,6 +103,8 @@ public class Player : MonoBehaviour {
 
 		shootTime = 0f;
 
+		anim.Play("MM_Shoot");
+
 		if(sr.flipX){
 			SFXM.instance.PlayShotSound(leftShoot.gameObject);
 			Instantiate(leftShootPrefab, leftShoot.position, Quaternion.identity);

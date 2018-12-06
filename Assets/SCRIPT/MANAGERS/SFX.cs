@@ -8,4 +8,5 @@ public class SFX {
 	public AudioClip XPPickup;
 	public AudioClip HPPickup;
 	public AudioClip Shot;
+	public AudioClip FailSound;
 }

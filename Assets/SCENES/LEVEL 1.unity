@@ -7244,8 +7244,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundFX:
     XPPickup: {fileID: 8300000, guid: aa7d99fd8a9c26f449ad590fbd0b44a6, type: 3}
-    HPPickup: {fileID: 0}
+    HPPickup: {fileID: 8300000, guid: 04c60f3ada39628418e95883fce2495c, type: 3}
     Shot: {fileID: 8300000, guid: 22990a6c6c24ffd4284fe35e3c942acc, type: 3}
+    FailSound: {fileID: 8300000, guid: 8529fb68b7f24bd4cb3d7b7387614528, type: 3}
   SoundFXPlayer:
     Jump: {fileID: 8300000, guid: 3b9f8203808295347b41d6046b64a425, type: 3}
 --- !u!1 &1477200239
@@ -7289,6 +7290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SmallXPParticles: {fileID: 1947759031924588, guid: dee49fe3d7bc94d488bac73b6ac99841,
+    type: 2}
+  EnemyDeathParticles: {fileID: 1587830331198282, guid: 6599581c97f06d34183ec49100dc6436,
     type: 2}
 --- !u!1 &1488934993
 GameObject:
@@ -84326,7 +84329,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0
   far clip plane: 1000
   field of view: 25
   orthographic: 1

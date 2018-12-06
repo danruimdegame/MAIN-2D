@@ -117,6 +117,7 @@ public class GM : MonoBehaviour {
 
 	public void KillBill(){
 		if (player != null){
+			SFXM.instance.PlayFailSound(player.gameObject);
 			Destroy(player.gameObject);
 			DecrementLives();
 			if(data.lifeCount > 0){
@@ -139,7 +140,9 @@ public class GM : MonoBehaviour {
 	}
 
 	IEnumerator GetInvulnerable(){
+		playeranim.SetInteger("State", 9);
 		Physics2D.IgnoreLayerCollision (15, 16, true);
 		yield return new WaitForSeconds (2f);
+		playeranim.SetInteger("State", 0);
 	}
 }

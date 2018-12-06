@@ -23,6 +23,10 @@ public class SFXM : MonoBehaviour {
 		AudioSource.PlayClipAtPoint(SoundFXPlayer.Jump, obj.transform.position);
 	}
 
+	public void PlayFailSound(GameObject obj){
+		AudioSource.PlayClipAtPoint(SoundFX.FailSound, obj.transform.position);
+	}
+
 	public void PlayShotSound(GameObject obj){
 		AudioSource.PlayClipAtPoint(SoundFX.Shot, obj.transform.position);
 	}

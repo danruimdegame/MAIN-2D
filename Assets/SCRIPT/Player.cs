@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
 
 	public GameObject rightShootPrefab;
 	public GameObject leftShootPrefab;
+
 	//
 
 	public bool isGrounded;
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour {
 		SFXM.instance.PlayShotSound(rightShoot.gameObject);
 		Instantiate(rightShootPrefab, rightShoot.position, Quaternion.identity);
 		}
+
 	}
 
 	void MoveHorizontal(float speed){
@@ -174,7 +176,6 @@ public class Player : MonoBehaviour {
 
 			case "Enemies":
 			if (!invulnerable) {
-				Debug.Log("pegou");
 				EnemyData script = other.gameObject.GetComponent<EnemyData>();
 				GM.instance.HurtBill(script.Damage);
 			}

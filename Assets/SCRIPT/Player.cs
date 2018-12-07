@@ -18,12 +18,14 @@ Damage - 9
 public class Player : MonoBehaviour {
 
 	public float horizontalSpeed = 10f;
+    public float verticalSpeed = 5f;
 	public float jumpSpeed = 180f;
 
 	Rigidbody2D rb;
 	SpriteRenderer sr;
 	Animator anim;
 	bool isJumping = false;
+    bool isRunning = false;
 
 	public Transform feet;
 	public Transform rightShoot;
@@ -65,8 +67,8 @@ public class Player : MonoBehaviour {
 		return false;
 	}
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		
 		if (shootTime < delayForShoot){
 			shootTime += Time.deltaTime;
@@ -101,9 +103,23 @@ public class Player : MonoBehaviour {
 			return;
 		}
 
+        //jumpshoot
+        if(isJumping == true)
+        {
+            anim.SetInteger("State", 5);
+        }
+        //runshoot
+        else if(isRunning == true)
+        {
+            anim.SetInteger("State", 4);
+        }
+        else
+        {
+            anim.SetInteger("State", 3);
+        }
+
 		shootTime = 0f;
 
-		anim.Play("MM_Shoot");
 
 		if(sr.flipX){
 			SFXM.instance.PlayShotSound(leftShoot.gameObject);
@@ -117,6 +133,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void MoveHorizontal(float speed){
+        isRunning = true;
 		rb.velocity = new Vector2(speed, rb.velocity.y);
 
 		if (speed < 0f){
@@ -131,6 +148,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void StopMoving(){
+        isRunning = false;
 		rb.velocity = new Vector2(0f, rb.velocity.y);
 
 		if(!isJumping){
@@ -172,7 +190,7 @@ public class Player : MonoBehaviour {
 
 
  
-//Collect XP 
+//Trigger Collider Interaction
 	void OnTriggerEnter2D(Collider2D other){
 		switch (other.gameObject.tag){
 
@@ -203,7 +221,7 @@ public class Player : MonoBehaviour {
 			GM.instance.IncrementXpCount3();
 			Destroy(other.gameObject);
 			break;
-		}
+        }
 	}
 
 	public void PushPlayer(){

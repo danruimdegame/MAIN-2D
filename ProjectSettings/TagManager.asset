@@ -13,6 +13,7 @@ TagManager:
   - XP3
   - Enemies
   - Bullet1
+  - Ladder
   layers:
   - Default
   - TransparentFX

@@ -96,6 +96,11 @@ public class Player : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1")){
 			Shoot();
 		}
+
+        if (!isGrounded)
+        {
+            anim.SetInteger("State", 1);
+        }
 	}
 
 	void Shoot (){
@@ -178,6 +183,13 @@ public class Player : MonoBehaviour {
 			isJumping = false;
 			transform.parent = other.transform;
 		}
+
+        //spike reaction
+        else if (other.gameObject.layer == 18)
+        {
+            isJumping = false;
+            GM.instance.KillBill();
+        }
 	}
 
 //NO TOUCHING MOVING PLATFORM

@@ -184,6 +184,12 @@ public class Player : MonoBehaviour {
 			transform.parent = other.transform;
 		}
 
+        //popup platform reaction
+        else if (other.gameObject.layer == 12)
+        {
+            isJumping = false;
+        }
+
         //spike reaction
         else if (other.gameObject.layer == 18)
         {
@@ -192,7 +198,7 @@ public class Player : MonoBehaviour {
         }
 	}
 
-//NO TOUCHING MOVING PLATFORM
+//STOP TOUCHING MOVING PLATFORM
 	void OnCollisionExit2D(Collision2D other){
 		if(other.gameObject.layer == 15){
 		transform.parent = null;

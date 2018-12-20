@@ -1295,6 +1295,31 @@ Prefab:
       propertyPath: m_Name
       value: JUMPER1-3
       objectReference: {fileID: 0}
+    - target: {fileID: 212732362687501166, guid: 96208d5ef78986640907c296ef0397f4,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212732362687501166, guid: 96208d5ef78986640907c296ef0397f4,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212732362687501166, guid: 96208d5ef78986640907c296ef0397f4,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212732362687501166, guid: 96208d5ef78986640907c296ef0397f4,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114418801069951032, guid: 96208d5ef78986640907c296ef0397f4,
+        type: 2}
+      propertyPath: health
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96208d5ef78986640907c296ef0397f4, type: 2}
   m_IsPrefabParent: 0

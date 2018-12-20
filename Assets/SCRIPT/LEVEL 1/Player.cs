@@ -123,6 +123,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isClimbing == true) {
+			anim.SetInteger ("State", 7);
 			InputVertical = Input.GetAxisRaw ("Vertical");
 			rb.velocity = new Vector2 (rb.velocity.x, InputVertical*verticalSpeed);
 			rb.gravityScale = -1;
@@ -136,17 +137,23 @@ public class Player : MonoBehaviour {
 				return;
 		}
 
- 
+		//jump shoot moving
+		if (isJumping && isRunning) {
+			anim.SetInteger ("State", 5);
+		}
 
-      	if(isJumping == true)
-        {
-            anim.SetInteger("State", 5);
-        }
+		//jumpshoot
+      	else if (isJumping == true) {
+			anim.SetInteger ("State", 5);
+		}
         //runshoot
-        else if(isRunning == true)
-        {
-            anim.SetInteger("State", 4);
-        }
+        else if (isRunning == true) {
+			anim.SetInteger ("State", 4);
+		} 
+		else if (isClimbing) {
+			anim.SetInteger ("State", 6);
+		}
+			
         else
         {
             anim.SetInteger("State", 3);

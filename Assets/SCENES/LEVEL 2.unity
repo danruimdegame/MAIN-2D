@@ -958,6 +958,9 @@ MonoBehaviour:
     XPPickup: {fileID: 8300000, guid: aa7d99fd8a9c26f449ad590fbd0b44a6, type: 3}
     HPPickup: {fileID: 0}
     Shot: {fileID: 8300000, guid: 22990a6c6c24ffd4284fe35e3c942acc, type: 3}
+    FailSound: {fileID: 0}
+    EnemyDeath: {fileID: 0}
+    EnemyDamage: {fileID: 0}
   SoundFXPlayer:
     Jump: {fileID: 8300000, guid: 3b9f8203808295347b41d6046b64a425, type: 3}
 --- !u!1 &872686199
@@ -1002,6 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallXPParticles: {fileID: 1947759031924588, guid: dee49fe3d7bc94d488bac73b6ac99841,
     type: 2}
+  EnemyDeathParticles: {fileID: 0}
 --- !u!1 &947240046
 GameObject:
   m_ObjectHideFlags: 0

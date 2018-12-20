@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
 	public float horizontalSpeed = 10f;
     public float verticalSpeed = 5f;
 	public float jumpSpeed = 180f;
+	public float horizontalInput;
+	public float InputVertical;
 
 	Rigidbody2D rb;
 	SpriteRenderer sr;
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour {
 
 	public GameObject rightShootPrefab;
 	public GameObject leftShootPrefab;
+
+	//ladders mechanics
+	public LayerMask whatIsLadder;
+	public float raycastDistance;
+	private bool isClimbing;
 
 	//
 
@@ -74,13 +81,15 @@ public class Player : MonoBehaviour {
 			shootTime += Time.deltaTime;
 		}
 
+		//fall death
 		if(transform.position.y < GM.instance.YMinLive) {
 			GM.instance.KillBill();
 		}
 
 		isGrounded = TestGrounded();
 
-		float horizontalInput = Input.GetAxisRaw("Horizontal");
+		//moving player
+		horizontalInput = Input.GetAxisRaw("Horizontal");
 		float horizontalPlayerSpeed = horizontalSpeed * horizontalInput;
 		if (horizontalPlayerSpeed != 0){
 			MoveHorizontal(horizontalPlayerSpeed);
@@ -101,15 +110,35 @@ public class Player : MonoBehaviour {
         {
             anim.SetInteger("State", 1);
         }
+
+		//ladder
+		RaycastHit2D hitInfo = Physics2D.Raycast (transform.position, Vector2.up, raycastDistance, whatIsLadder);
+
+		if (hitInfo.collider != null) {
+			if (Input.GetKeyDown (KeyCode.W)) {
+				isClimbing = true;
+			}
+		} else {
+			isClimbing = false;
+		}
+
+		if (isClimbing == true) {
+			InputVertical = Input.GetAxisRaw ("Vertical");
+			rb.velocity = new Vector2 (rb.velocity.x, InputVertical*verticalSpeed);
+			rb.gravityScale = -1;
+		}else{
+			rb.gravityScale = 1f;
+		}
 	}
 
 	void Shoot (){
 		if(delayForShoot > shootTime){
-			return;
+				return;
 		}
 
-        //jumpshoot
-        if(isJumping == true)
+ 
+
+      	if(isJumping == true)
         {
             anim.SetInteger("State", 5);
         }

@@ -234,7 +234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 5
+  verticalSpeed: 5
   jumpSpeed: 6
+  horizontalInput: 0
+  InputVertical: 0
   feet: {fileID: 4535028200793480}
   rightShoot: {fileID: 4635796262761966}
   leftShoot: {fileID: 4937548678948864}
@@ -245,6 +248,10 @@ MonoBehaviour:
     type: 2}
   leftShootPrefab: {fileID: 1083257407237646, guid: 216e0e1cbc43b334baa2334b02fa6110,
     type: 2}
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 2048
+  raycastDistance: 3
   isGrounded: 0
   whaIsGround:
   - serializedVersion: 2
